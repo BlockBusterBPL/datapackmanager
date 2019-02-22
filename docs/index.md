@@ -3,8 +3,8 @@
  * ### Package A Set Of Datapacks For Redistribution
  * ### Uses Git To Clone Any Repository
  * ### Other Features For Minecraft Worlds:
-  * #### Manage Structure Blocks
-  * #### Manipulate Player Data
+  - #### Manage Structure Blocks
+  - #### Manipulate Player Data
 
 # Download
- [Latest Version]()
+ [Latest Version](h)
