@@ -1,2 +1,2 @@
-# datapackmanager
-(WIP) A Package Manager For Minecraft's New Datapack Feature.
+# (WIP) DataPackManager
+A Package Manager For Minecraft's New Datapack Feature.
