@@ -1,8 +1,18 @@
 dpm:
   latestversion: "1"
-  install-url: "https://codeload.github.com/BlockBusterBPL/DPMDataPack/zip/master"
-  help-url: ""
-BlingEdit:
-  latestversion: ""
-  install-url: ""
-  help-url: "https://docs.google.com/document/d/13jC-XnCvyyaTaVWAqNc3Gyqu6JEOWAa-xGfhFC8AU50/edit"
+  installurl: "https://codeload.github.com/BlockBusterBPL/DPMDataPack/zip/master"
+  helpurl: ""
+  normalname: "DataPackManager"
+  author: "BlockBusterBPL"
+blingedit:
+  latestversion: "1"
+  installurl: ""
+  helpurl: "https://docs.google.com/document/d/13jC-XnCvyyaTaVWAqNc3Gyqu6JEOWAa-xGfhFC8AU50/edit"
+  normalname: "BlingEdit"
+  author: "SethBling"
+testfile:
+  latestversion: "1"
+  installurl: "http://ipv4.download.thinkbroadband.com/20MB.zip"
+  helpurl: "https://www.thinkbroadband.com/download"
+  normalname: "20 Megabyte Test File"
+  author: "ThinkBroadBand"
