@@ -44,8 +44,12 @@ then
 else
 	echo "${PFX}Getting Install URL"
 	echo "${PFX}Grabbed Install URL For $PACKAGE"
+	if [ -d ${PACKAGE} ]
+			mkdir ${PACKAGE}
+	else
 	rmdir ${PACKAGE}
 	mkdir ${PACKAGE}
+	fi
 	cd ${PACKAGE}
 	wget $package_testfile_installurl --show-progress
 	echo "${PFX}Downloaded $package_testfile_normalname"
