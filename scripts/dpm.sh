@@ -1,5 +1,5 @@
 #!/bin/sh
-. parse_yaml.sh
+. parse_yaml.sh #include YAML parser
 eval $(parse_yaml packages.yml "package_")
 #eval $(parse_yaml configuration.yml "config_")
 POSITIONAL=()
