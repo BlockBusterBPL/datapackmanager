@@ -1,7 +1,7 @@
 #!/bin/sh
 . parse_yaml.sh
 eval $(parse_yaml packages.yml "package_")
-#eval $(parse_yaml configuration.yml "config_")
+eval $(parse_yaml config.yml "config_")
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
