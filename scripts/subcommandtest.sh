@@ -23,9 +23,10 @@ sub_help(){
 }
 
 sub_config(){
-  property=$1
-  value=$2
-  echo "${PFX}Setting Property $property to $value"
+	echo "${ERR}${PFX}Config Command Not Yet Implemented"
+  #property=$1
+  #value=$2
+  #echo "${PFX}Setting Property $property to $value"
 }
 
 sub_install(){
@@ -62,7 +63,7 @@ case $subcommand in
         shift
         sub_${subcommand} $@
         if [ $? = 127 ]; then
-            echo "[Error] [DPM]: '$subcommand' is not a known subcommand." >&2
+            echo "${ERR}${PFX} '$subcommand' is not a known subcommand." >&2
             echo "       Run '$ProgName --help' for a list of known subcommands." >&2
             exit 1
         fi
