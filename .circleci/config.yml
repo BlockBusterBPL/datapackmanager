@@ -7,9 +7,9 @@ jobs:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Create Code Archive
+          command: git archive -o dpm-build.zip
 
       - run:
-          name: Print the Current Time
-          command: date
+          name: Publish Build Artifact
+          command: echo Not Implemented
