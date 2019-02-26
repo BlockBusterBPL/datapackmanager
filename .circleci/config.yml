@@ -2,7 +2,6 @@ version: 2
 jobs:
   build:
     executors:
-      build-main:
         machine: true
     steps:
       - checkout
