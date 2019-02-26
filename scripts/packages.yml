@@ -1,6 +1,7 @@
 dpm:
   latestversion: 1
-  installurl: "https://codeload.github.com/BlockBusterBPL/DPMDataPack/zip/master"
+  installurl: "https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip"
+	reponame: "datapackmanager"
   helpurl: "https://www.github.com/BlockBusterBPL/datapackmanager/wiki"
   normalname: "DataPackManager"
   author: "BlockBusterBPL"
@@ -12,10 +13,11 @@ blingedit:
   normalname: "BlingEdit"
   author: "SethBling"
   mcversion: 1.13.2
-testfile:
-  latestversion: 1
-  installurl: "http://ipv4.download.thinkbroadband.com/20MB.zip"
-  helpurl: "https://www.thinkbroadband.com/download"
-  normalname: "20 Megabyte Test File"
-  author: "ThinkBroadBand"
-  mcversion: 1.13.2
+mechanization:
+	latestversion: 2.0.6
+	installurl: "https://github.com/ImCoolYeah105/Mechanization/archive/master.zip"
+	reponame: "Mechanization"
+	helpurl: "https://github.com/ImCoolYeah105/Mechanization/wiki"
+	normalname: "Mechanization"
+	author: "ImCoolYeah105"
+	mcversion: 1.13.2

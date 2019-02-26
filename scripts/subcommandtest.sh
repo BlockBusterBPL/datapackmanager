@@ -1,7 +1,6 @@
 #!/bin/sh
 . parse_yaml.sh
 eval $(parse_yaml packages.yml "package_")
-eval $(parse_yaml config.yml "config_")
 PFX="[DPM]: "
 WARN="[WARNING] "
 ERR="[ERROR] "
@@ -36,16 +35,25 @@ then
       echo "${ERR}${PFX}No Package Name Given! Try Again."
 else
   echo "${PFX} Installing ${package}"
-	mkdir ${package}
-	cd ${package}
 	INSTALLER="package_"
 	INSTALLER+="${package}"
 	INSTALLER+="_installurl"
 	eval IURL=${!INSTALLER}
 	wget --show-progress $IURL
-	echo "${PFX}Downloaded $package, preparing to install to world: $config_selected-world"
+	echo "${PFX}Downloaded $package"
   echo "${PFX}Unzipping..."
-  unzip
+	unzip -q '*'
+	RNAME="package_"
+	RNAME+="${package}"
+	RNAME+="_reponame"
+	eval IRNAME=${!RNAME}
+	echo "${PFX}Extracted ${IRNAME}, type the savename of the world you want to install to."
+	read savename
+	echo "${PFX}Installing ${IRNAME} to ${savename}..."
+	FOLDERNAME=$PWD
+	FOLDERNAME+="/"
+	FOLDERNAME+=$IRNAME
+	FOLDERNAME+="-master"
 fi
 }
   
