@@ -1,5 +1,6 @@
 # (WIP) DataPackManager
-A Package Manager For Minecraft's New Datapack Feature.
+A Package Manager For Minecraft's New Datapack Feature.  
+![](https://img.shields.io/badge/Packages-2-success.svg) ![](https://img.shields.io/github/downloads/blockbusterbpl/datapackmanager/total.svg?label=Downloads&logo=github) ![](https://img.shields.io/github/issues-raw/blockbusterbpl/datapackmanager/bug.svg?color=red&label=Code%20Bugs) ![](https://img.shields.io/github/release/blockbusterbpl/datapackmanager.svg?label=Latest%20Version)
 # Requirements
  * [Git Bash]() (Not Required On Mac)
  * [WGet]()
