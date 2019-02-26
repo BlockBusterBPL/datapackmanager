@@ -1,7 +1,7 @@
 dpm:
   latestversion: "1"
   installurl: "https://codeload.github.com/BlockBusterBPL/DPMDataPack/zip/master"
-  helpurl: ""
+  helpurl: "https://www.github.com/BlockBusterBPL/datapackmanager/wiki"
   normalname: "DataPackManager"
   author: "BlockBusterBPL"
 blingedit:
