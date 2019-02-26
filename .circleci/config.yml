@@ -1,4 +1,7 @@
 version: 2
+executors:
+  build-main:
+    machine: true
 jobs:
   build:
     steps:
