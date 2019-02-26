@@ -13,16 +13,6 @@ case $key in
     shift # past argument
     shift # past value
     ;;
-    -m|--mode)
-    MODE="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -r|--reset)
-    RESET="$2"
-    shift # past argument
-    shift # past value
-    ;;
     -u|--update)
     UPDATE=YES
     shift # past argument
@@ -41,14 +31,18 @@ if [ -z "${PACKAGE}" ]
 then
       echo "${PFX}${ERR}No Package Name Given! Try Again."
 else
+if [UPDATE=YES]
+echo "${PFX} Updating ${PACKAGE}"
+else
 	echo "${PFX}Getting Install URL"
 	echo "${PFX}Grabbed Install URL For $PACKAGE"
 	mkdir ${PACKAGE}
 	cd ${PACKAGE}
-	INSTALLER="package_"
-	INSTALLER+="${PACKAGE}"
-	INSTALLER+="_installurl"
-	eval IURL=${!INSTALLER}
+	DOWNLOADURL="package_" #Create Variable With package_
+	DOWNLOADURL+="${PACKAGE}" #Add package name to variable
+	DOWNLOADURL+="_installurl" #Add _installurl to variable
+	eval IURL=${!DOWNLOADURL}
 	wget --show-progress $IURL
 	echo "${PFX}Downloaded $PACKAGE"
+	fi
 fi
