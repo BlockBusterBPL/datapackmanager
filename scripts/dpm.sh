@@ -37,29 +37,18 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 PFX="[DPM]: "
 WARN="[WARNING] "
 ERR="[ERROR] "
-if [ "$MODE" = "install" ]
-if [ -z "$PACKAGE" ]
+if [ -z "${PACKAGE}" ]
 then
       echo "${PFX}${ERR}No Package Name Given! Try Again."
 else
 	echo "${PFX}Getting Install URL"
 	echo "${PFX}Grabbed Install URL For $PACKAGE"
-	if [ -d ${PACKAGE} ]
-			mkdir ${PACKAGE}
-	else
-	rmdir ${PACKAGE}
 	mkdir ${PACKAGE}
-	fi
 	cd ${PACKAGE}
-	wget $package_testfile_installurl --show-progress
-	echo "${PFX}Downloaded $package_testfile_normalname"
-fi
-else
-	
-	if []
-
-	else
-	
-	fi
-	
+	INSTALLER="package_"
+	INSTALLER+="${PACKAGE}"
+	INSTALLER+="_installurl"
+	eval IURL=${!INSTALLER}
+	wget --show-progress $IURL
+	echo "${PFX}Downloaded $PACKAGE"
 fi
