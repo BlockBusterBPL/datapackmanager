@@ -1,17 +1,18 @@
 version: 2
 jobs:
   build:
+        branches:
+          ignore:
+            - master
+            - /feature-.*/
+
     steps:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Download Archive
+          command: git archive -v -f zip -o dpm-final
 
       - run:
           name: Print the Current Time
           command: date
-    branches:
-      ignore:
-        - master
-        - /feature-.*/
