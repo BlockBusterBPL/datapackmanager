@@ -1,8 +1,8 @@
 version: 2
 jobs:
   build:
-    executors:
-        machine: true
+    machine: 
+      - image: "circleci/classic:latest"
     steps:
       - checkout
 
