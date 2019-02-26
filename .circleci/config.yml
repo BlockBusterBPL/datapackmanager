@@ -10,8 +10,8 @@ jobs:
       - checkout
 
       - run:
-          name: Download Archive
-          command: git archive -v -f zip -o dpm-final
+          name: Greeting
+          command: echo Hello, world.
 
       - run:
           name: Print the Current Time
