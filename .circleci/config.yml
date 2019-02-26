@@ -8,7 +8,7 @@ jobs:
 
       - run:
           name: Create Code Archive
-          command: git archive -o dpm-build.zip
+          command: echo creating archive
 
       - run:
           name: Publish Build Artifact
