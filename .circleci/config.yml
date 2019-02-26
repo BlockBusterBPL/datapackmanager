@@ -1,8 +1,10 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: debian:stretch
+  branches:
+      ignore:
+        - master
+        - /feature-.*/
 
     steps:
       - checkout
