@@ -76,7 +76,7 @@ else
 	RNAME+="_reponame"
 	eval IRNAME=${!RNAME}
 	echo "${PFX}Extracted ${IRNAME}, type the savename of the world you want to install to."
-	#read savename
+	read savename
 	echo "${PFX}Installing ${IRNAME} to ${savename}..."
 	FOLDERNAME=$PWD
 	FOLDERNAME+="/"
@@ -84,6 +84,7 @@ else
 	FOLDERNAME+="-master"
 	echo $FOLDERNAME
 	rm master.zip
+	cp ${FOLDERNAME} $config_savelocation
 fi
 }
   
