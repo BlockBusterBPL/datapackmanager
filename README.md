@@ -5,3 +5,4 @@ A Package Manager For Minecraft's New Datapack Feature.
  * [Git Bash]() (Not Required On Mac)
  * [WGet]()
  * [Unzip for Bash]()
+ * [YAML for Bash]()
