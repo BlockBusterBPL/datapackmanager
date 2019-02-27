@@ -1,1 +1,13 @@
 version: "1.0 Prerelease"
+worlds:
+  prefix: "../../saves/"
+  default:
+    path: "default"
+    name: "default"
+    installed:
+      - "dpm-core"
+  creative:
+    path: "creative"
+    name: "creative"
+    installed:
+      - "dpm-core"
