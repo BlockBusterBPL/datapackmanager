@@ -1,7 +1,7 @@
 dpm:
   latestversion: 1
   installurl: "https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip"
-	reponame: "datapackmanager"
+	reponame: "datapackmanager-core"
   helpurl: "https://www.github.com/BlockBusterBPL/datapackmanager/wiki"
   normalname: "DataPackManager"
   author: "BlockBusterBPL"
