@@ -1,6 +1,27 @@
-# (WIP) DataPackManager
-A Package Manager For Minecraft's New Datapack Feature.  
-![](https://img.shields.io/badge/Packages-3-success.svg) ![](https://img.shields.io/github/downloads/blockbusterbpl/datapackmanager/total.svg?label=Downloads&logo=github) ![](https://img.shields.io/github/issues-raw/blockbusterbpl/datapackmanager/bug.svg?color=red&label=Code%20Bugs) ![](https://img.shields.io/github/release/blockbusterbpl/datapackmanager.svg?label=Latest%20Version) ![GitHub last commit](https://img.shields.io/github/last-commit/BlockBusterBPL/datapackmanager.svg?label=Last%20Commit)
-# Requirements
- * [Git Bash]() (Not Required On Mac)
- * [WGet]() (Installed Automatically)
+# DataPackManager
+A Package Manager For Minecraft's New Datapack Feature, Avaliable on Mac and Windows
+![](https://img.shields.io/badge/Packages-3-success.svg) 
+![](https://img.shields.io/github/downloads/blockbusterbpl/datapackmanager/total.svg?label=Downloads&logo=github)
+# Features
+* Quickly download and manage datapacks for your minecraft worlds
+* Check for updates and grab the latest version
+* Manage multiple worlds
+* Automatically install dependacies
+* Make groups of datapacks and send them to your friends
+* CLI for making your own datapacks
+  - Automatically Create New Files In The Right Place
+  - Tag Functions To Run Each Tick Or On Game Load
+  - Automatically Generate Complicated JSON Files like `pack.mcmeta`
+* Based On Shellscript With Wget
+# Video Overview
+EMBED GOES HERE
+# Other Information
+Automatically Installs The Following Dependancies
+* wget (Downloading Files)
+* yq (Parses YAML Files)
+The install script will install to the default MC directory  
+* Windows: `C:\Users\{yourname}\AppData\Roaming\.minecraft`  
+* Mac OS: `/Users/{yourname}/Library/Application Support/minecraft`
+
+Operates From The Subdirectory Of `datapackmanager`  
+This Program Will Add And Remove Data From Your Minecraft Installation. If you reinstall minecraft, or delete the datapackmanager directory, this program will no longer work
