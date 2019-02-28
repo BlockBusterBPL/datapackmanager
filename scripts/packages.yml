@@ -1,11 +1,23 @@
 dpm:
   latestversion: 1
   installurl: "https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip"
-	reponame: "datapackmanager-core"
+	reponame: "datapackmanager"
   helpurl: "https://www.github.com/BlockBusterBPL/datapackmanager/wiki"
   normalname: "DataPackManager"
   author: "BlockBusterBPL"
   mcversion: 1.13.2
+	dependancies:
+		- "devtools"
+devtools:
+	latestversion: 1
+	installurl: "https://github.com/ImCoolYeah105/Datapack-Utilities/archive/master.zip"
+	reponame: "Datapack-Utilities"
+	helpurl: "https://github.com/ImCoolYeah105/Datapack-Utilities/wiki"
+	normalname: "Datapack Utilities"
+	author: "ImCoolYeah105"
+	mcversion: 1.13.2
+	dependancies:
+		- ""
 blingedit:
   latestversion: 1
   installurl: ""
@@ -13,6 +25,8 @@ blingedit:
   normalname: "BlingEdit"
   author: "SethBling"
   mcversion: 1.13.2
+	dependancies:
+		- ""
 mechanization:
 	latestversion: 2.0.6
 	installurl: "https://github.com/ImCoolYeah105/Mechanization/archive/master.zip"
@@ -21,3 +35,15 @@ mechanization:
 	normalname: "Mechanization"
 	author: "ImCoolYeah105"
 	mcversion: 1.13.2
+	dependancies:
+		- "devtools"
+combatplus:
+	latestversion: 0.3.0
+	installurl: "https://github.com/ImCoolYeah105/CombatPlus/archive/master.zip"
+	reponame: "CombatPlus"
+	helpurl: "https://github.com/ImCoolYeah105/CombatPlus/wiki"
+	normalname: "Combat Plus"
+	author: "ImCoolYeah105"
+	mcversion: 1.13.2
+	dependancies:
+		- "devtools"
