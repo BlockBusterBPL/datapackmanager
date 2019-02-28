@@ -22,7 +22,7 @@ eval $(parse_yaml meta.yml "meta_")
 PFX="[DPM]: "
 WARN="[WARNING] "
 ERR="[ERROR] "
-$D=$(dirname $0)
+eval D=$(dirname $0)
 
 ProgName=$(basename $0)
 sub_create(){
@@ -34,7 +34,7 @@ cd saves
 cd ${meta_sw_savename}
 echo "${PFX}Name The Datapack:"
 read makename
-if [ -!z "$makename" ] then
+if [ -z "$makename" ] then
 mkdir $makename
 cd $makename
 mkdir data
@@ -64,7 +64,7 @@ cd ..
 cd ..
 echo "${PFX}Created Datapack with name ${makename}!"
 else
-echo "You Did Not Enter A Name!"
+	echo "You Did Not Enter A Name!"
 fi
 }
 
