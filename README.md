@@ -14,7 +14,7 @@ A Package Manager For Minecraft's New Datapack Feature, Avaliable on Mac and Win
   - Automatically Generate Complicated JSON Files like `pack.mcmeta`
 * Based On Shellscript With Wget
 # Video Overview
-EMBED GOES HERE
+Coming Soon...
 # Other Information
 Automatically Installs The Following Dependancies  
 * wget (Downloading Files)  
