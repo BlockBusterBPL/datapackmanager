@@ -22,9 +22,62 @@ eval $(parse_yaml meta.yml "meta_")
 PFX="[DPM]: "
 WARN="[WARNING] "
 ERR="[ERROR] "
-
+$D=$(dirname $0)
 
 ProgName=$(basename $0)
+sub_create(){
+echo "${PFX}Creating New Datapack in world: ${meta_sw_name}"
+cd $D
+cd ..
+cd ..
+cd saves
+cd ${meta_sw_savename}
+echo "${PFX}Name The Datapack:"
+read makename
+if [ -!z "$makename" ] then
+mkdir $makename
+cd $makename
+mkdir data
+touch pack.mcmeta
+#INSERT BASE PACK DATA HERE
+#PACKDATA="json stuff"
+#PACKDATA > pack.mcmeta
+cd data
+echo "${PFX}What will the namespace of your datapack be?"
+read namespace
+mkdir $namespace
+cd $namespace
+mkdir advancements
+mkdir functions
+mkdir loot_tables
+mkdir recipes
+mkdir structures
+mkdir tags
+cd tags
+mkdir blocks
+mkdir items
+mkdir fluids
+mkdir functions
+cd ..
+cd ..
+cd ..
+cd ..
+echo "${PFX}Created Datapack with name ${makename}!"
+else
+echo "You Did Not Enter A Name!"
+fi
+}
+
+sub_addnew(){
+case $1 in
+	"function" )
+	#Create New Function
+	;;
+	"advancement" )
+	#Create New Advancement
+
+esac
+}
 
 sub_update(){
 	if [ $1 = "self" ]
@@ -58,6 +111,7 @@ sub_config(){
 
 sub_install(){
     package=$1
+    world=$2
     if [ -z "${package}" ]
 then
       echo "${ERR}${PFX}No Package Name Given! Try Again."
@@ -76,7 +130,11 @@ else
 	RNAME+="_reponame"
 	eval IRNAME=${!RNAME}
 	echo "${PFX}Extracted ${IRNAME}, type the savename of the world you want to install to."
+	if [ -z "$world" ] then
 	read savename
+	else
+	savename="$world"
+	fi
 	echo "${PFX}Installing ${IRNAME} to ${savename}..."
 	FOLDERNAME=$PWD
 	FOLDERNAME+="/"
