@@ -1,4 +1,7 @@
 version: "1.0 Prerelease"
+selectedworld:
+  name: "ZuCc"
+  savename: "ZuCc"
 worlds:
   prefix: "../../saves/"
   default:
