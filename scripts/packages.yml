@@ -1,6 +1,5 @@
 dpm:
 	type: "library"
-  latestversion: 1
   installurl: "https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip"
 	reponame: "datapackmanager"
   helpurl: "https://www.github.com/BlockBusterBPL/datapackmanager/wiki"
@@ -11,7 +10,6 @@ dpm:
 		- "devtools"
 devtools:
 	type: "library"
-	latestversion: 1
 	installurl: "https://github.com/ImCoolYeah105/Datapack-Utilities/archive/master.zip"
 	reponame: "Datapack-Utilities"
 	helpurl: "https://github.com/ImCoolYeah105/Datapack-Utilities/wiki"
@@ -22,7 +20,6 @@ devtools:
 		- ""
 blingedit:
 	type: "single"
-  latestversion: 1
   installurl: ""
   helpurl: "https://docs.google.com/document/d/13jC-XnCvyyaTaVWAqNc3Gyqu6JEOWAa-xGfhFC8AU50/edit"
   normalname: "BlingEdit"
@@ -32,7 +29,6 @@ blingedit:
 		- ""
 mechanization:
 	type: "single"
-	latestversion: 2.0.6
 	installurl: "https://github.com/ImCoolYeah105/Mechanization/archive/master.zip"
 	reponame: "Mechanization"
 	helpurl: "https://github.com/ImCoolYeah105/Mechanization/wiki"
@@ -42,7 +38,7 @@ mechanization:
 	dependancies:
 		- "devtools"
 combatplus:
-	latestversion: 0.3.0
+	type: "single"
 	installurl: "https://github.com/ImCoolYeah105/CombatPlus/archive/master.zip"
 	reponame: "CombatPlus"
 	helpurl: "https://github.com/ImCoolYeah105/CombatPlus/wiki"
@@ -51,3 +47,30 @@ combatplus:
 	mcversion: 1.13.2
 	dependancies:
 		- "devtools"
+itemframecolors:
+	installurl: "https://github.com/kikipunk/Item-Frame-Color-DataPack/archive/master.zip"
+	reponame: "Item-Frame-Color-DataPack"
+	helpurl: "https://github.com/kikipunk/Item-Frame-Color-DataPack/wiki"
+	normalname: "Item Frame Colors"
+	author: "kikipunk"
+	mcversion: 1.13.2
+	dependancies:
+		- ""
+rfscraft:
+	installurl: "https://github.com/RF-Tar-Railt/RF-s-Craft/archive/master.zip"
+	reponame: "RF-s-Craft"
+	helpurl: "https://github.com/RF-Tar-Railt/RF-s-Craft/wiki"
+	normalname: "RF-s-Craft"
+	author: "RF-Tar-Railt"
+	mcversion: 1.13.2
+	dependancies:
+		- ""
+mixed-slabs:
+	installurl: "https://github.com/ruhuasiyu/Mix_Slabs/blob/master/datapacks/mix_slabs.zip?raw=true"
+	reponame: "mix_slabs"
+	helpurl: "https://github.com/ruhuasiyu/Mix_Slabs"
+	normalname: "Mixed Slabs"
+	author: "ruhuasiyu"
+	mcversion: 1.13.2
+	dependancies:
+		- ""
