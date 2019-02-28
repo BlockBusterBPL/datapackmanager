@@ -1,4 +1,5 @@
 dpm:
+	type: "library"
   latestversion: 1
   installurl: "https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip"
 	reponame: "datapackmanager"
@@ -9,6 +10,7 @@ dpm:
 	dependancies:
 		- "devtools"
 devtools:
+	type: "library"
 	latestversion: 1
 	installurl: "https://github.com/ImCoolYeah105/Datapack-Utilities/archive/master.zip"
 	reponame: "Datapack-Utilities"
@@ -19,6 +21,7 @@ devtools:
 	dependancies:
 		- ""
 blingedit:
+	type: "single"
   latestversion: 1
   installurl: ""
   helpurl: "https://docs.google.com/document/d/13jC-XnCvyyaTaVWAqNc3Gyqu6JEOWAa-xGfhFC8AU50/edit"
@@ -28,6 +31,7 @@ blingedit:
 	dependancies:
 		- ""
 mechanization:
+	type: "single"
 	latestversion: 2.0.6
 	installurl: "https://github.com/ImCoolYeah105/Mechanization/archive/master.zip"
 	reponame: "Mechanization"
