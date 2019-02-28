@@ -1,6 +1,6 @@
 # DataPackManager
 A Package Manager For Minecraft's New Datapack Feature, Avaliable on Mac and Windows  
-![](https://img.shields.io/badge/Packages-4-success.svg) 
+![](https://img.shields.io/badge/Packages-7-success.svg) 
 ![](https://img.shields.io/github/downloads/blockbusterbpl/datapackmanager/total.svg?label=Downloads&logo=github)
 # Features
 * Quickly download and manage datapacks for your minecraft worlds
