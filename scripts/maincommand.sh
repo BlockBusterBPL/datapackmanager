@@ -67,7 +67,7 @@ esac
 sub_update(){
 	if [ $1 = "self" ]
 	then
-		echo "${PFX}Updating DPM. Current Version: $meta_version."
+		echo "${PFX}Updating DPM. Current Version: $($YRM version)."
 		wget --show-progress https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip
 	else
 		echo "oof"
@@ -78,7 +78,6 @@ sub_help(){
     echo "Usage: $ProgName <subcommand> [options]\n"
     echo "Subcommands:"
     echo "    install:   Install Package"
-    echo "    remove:   Remove Package"
     echo "    update:   Update A Package"
     echo "    config:   Change the value of a setting"
     echo ""
