@@ -1,70 +1,55 @@
 #!/bin/sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd "$DIR"
-pwd
-parse_yaml() {
-   local prefix=$2
-   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
-   sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
-        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
-   awk -F$fs '{
-      indent = length($1)/2;
-      vname[indent] = $2;
-      for (i in vname) {if (i > indent) {delete vname[i]}}
-      if (length($3) > 0) {
-         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
-      }
-   }'
-}
-eval $(parse_yaml packages.yml "package_")
-eval $(parse_yaml meta.yml "meta_")
 PFX="[DPM]: "
 WARN="[WARNING] "
 ERR="[ERROR] "
-eval D=$(dirname $0)
-
+D=$DIR
+YRM="yq read meta.yml"
+YRP="yq read packages.yml"
 ProgName=$(basename $0)
+world=$($YRM selectedworld.path)
 sub_create(){
-echo "${PFX}Creating New Datapack in world: ${meta_sw_name}"
+echo "${PFX}Creating New Datapack in world: $($YRM selectedworld.name)"
 cd $D
 cd ..
 cd ..
 cd saves
-cd ${meta_sw_savename}
+cd $($YRM selectedworld.savename)
 echo "${PFX}Name The Datapack:"
 read makename
-if [ -z "$makename" ] then
-mkdir $makename
-cd $makename
-mkdir data
-touch pack.mcmeta
-#INSERT BASE PACK DATA HERE
-#PACKDATA="json stuff"
-#PACKDATA > pack.mcmeta
-cd data
-echo "${PFX}What will the namespace of your datapack be?"
-read namespace
-mkdir $namespace
-cd $namespace
-mkdir advancements
-mkdir functions
-mkdir loot_tables
-mkdir recipes
-mkdir structures
-mkdir tags
-cd tags
-mkdir blocks
-mkdir items
-mkdir fluids
-mkdir functions
-cd ..
-cd ..
-cd ..
-cd ..
-echo "${PFX}Created Datapack with name ${makename}!"
+if [ -z "$makename" ]
+then
+		echo "You Did Not Enter A Name!"
 else
-	echo "You Did Not Enter A Name!"
+	mkdir $makename
+	cd $makename
+	mkdir data
+	touch pack.mcmeta
+	#INSERT BASE PACK DATA HERE
+	#PACKDATA="json stuff"
+	#PACKDATA > pack.mcmeta
+	cd data
+	echo "${PFX}What will the namespace of your datapack be?"
+	read namespace
+	mkdir $namespace
+	cd $namespace
+	mkdir advancements
+	mkdir functions
+	mkdir loot_tables
+	mkdir recipes
+	mkdir structures
+	mkdir tags
+	cd tags
+	mkdir blocks
+	mkdir items
+	mkdir fluids
+	mkdir functions
+	cd ..
+	cd ..
+	cd ..
+	cd ..
+	echo "${PFX}Created Datapack with name ${makename}!"
 fi
 }
 
@@ -82,7 +67,7 @@ esac
 sub_update(){
 	if [ $1 = "self" ]
 	then
-		echo "${PFX}Updating DPM. Current Version: $meta_version."
+		echo "${PFX}Updating DPM. Current Version: $($YRM version)."
 		wget --show-progress https://github.com/BlockBusterBPL/datapackmanager/archive/master.zip
 	else
 		echo "oof"
@@ -93,7 +78,6 @@ sub_help(){
     echo "Usage: $ProgName <subcommand> [options]\n"
     echo "Subcommands:"
     echo "    install:   Install Package"
-    echo "    remove:   Remove Package"
     echo "    update:   Update A Package"
     echo "    config:   Change the value of a setting"
     echo ""
@@ -112,37 +96,32 @@ sub_config(){
 sub_install(){
     package=$1
     world=$2
-    if [ -z "${package}" ]
+    if [ -z "${package}" ];
 then
       echo "${ERR}${PFX}No Package Name Given! Try Again."
 else
   echo "${PFX} Installing ${package}"
-	INSTALLER="package_"
-	INSTALLER+="${package}"
-	INSTALLER+="_installurl"
-	eval IURL=${!INSTALLER}
+	eval IURL=$($YRP ${package}.installurl)
 	wget --show-progress $IURL
 	echo "${PFX}Downloaded $package"
   echo "${PFX}Unzipping..."
-	unzip -q master
-	RNAME="package_"
-	RNAME+="${package}"
-	RNAME+="_reponame"
-	eval IRNAME=${!RNAME}
+	unzip -q -o master
+	IRNAME=$($YRP ${package}.reponame)
+	if [ -z "${world}" ]; then
 	echo "${PFX}Extracted ${IRNAME}, type the savename of the world you want to install to."
-	if [ -z "$world" ] then
 	read savename
 	else
 	savename="$world"
 	fi
 	echo "${PFX}Installing ${IRNAME} to ${savename}..."
-	FOLDERNAME=$PWD
+	FOLDERNAME="$PWD"
 	FOLDERNAME+="/"
 	FOLDERNAME+=$IRNAME
 	FOLDERNAME+="-master"
 	echo $FOLDERNAME
 	rm master.zip
-	cp ${FOLDERNAME} $config_savelocation
+	cp -r "${FOLDERNAME}" "$($YRM worlds.prefix)/$savename/datapacks"
+	rm -r "${FOLDERNAME}"
 fi
 }
   
