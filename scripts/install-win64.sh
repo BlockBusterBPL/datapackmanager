@@ -18,6 +18,10 @@ echo "Installed wget"
 echo "Installing yq..."
 wget --show-progress --no-clobber https://github.com/mikefarah/yq/releases/download/2.2.1/yq_windows_amd64.exe
 echo "Installed yq"
+cd C:\
+mkdir dpm
+cd dpm
+git clone https://github.com/BlockBusterBPL/dpm-packages
 echo "Installing Main Scripts"
 cd appdata/roaming/.minecraft
 mkdir datapackmanager
