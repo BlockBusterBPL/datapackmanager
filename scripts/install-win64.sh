@@ -5,8 +5,9 @@ echo "Do Not Distribute Without Express Permission!"
 echo "Please Wait 5 Seconds"
 sleep 5s
 
-#$BPCODE="Bash Code Here"
-#$BPCODE >> .bash_profile
+mkdir .dpm
+$BPCODE="alias dpm='~/.dpm/bin/maincommand.sh'"
+$BPCODE > .bash_profile
 echo "Getting Dependencies..."
 $HDIR="C:\Program\ Files\Git\mingw64\bin"
 cd $HDIR
