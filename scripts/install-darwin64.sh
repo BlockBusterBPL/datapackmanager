@@ -7,9 +7,15 @@ echo "Checking If Homebrew is installed..."
 if brew ; then
     echo "Homebrew Installed! Installing Dependancies."
 else
-    echo "Homebrew Not Installed! Downloading Now."
+    echo "Homebrew Not Installed! Would You Like To Install It? (Y/N)"
+    read $Choice
+    if [ $Choice = "Y" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     wait
+    else
+    echo "Aborting Installation! Error: Homebrew Is Required."
+    exit 1
+    fi
 fi
 brew install wget
 wait
