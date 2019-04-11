@@ -16,4 +16,4 @@ echo "One or more libraries were not found! Make sure they are installed before 
 wait 3
 exit 1
 fi
-dialog --
+dialog --checklist "Select Options To Install:" 10 40 4
