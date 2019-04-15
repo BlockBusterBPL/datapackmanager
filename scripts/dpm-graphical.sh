@@ -6,11 +6,11 @@
 ###################################
 version="0.1"
 clear
-dialog --title "DPM" --menu "Choose An Option" 44 66 4\
-1 "Select A World"\
-2 "Change Global Settings"\
-3 "Credits and Information"\
-4 "Update Package List"
+dialog --title "DPM" --menu "Choose An Option" 44 66 4 \
+1 "Select A World" \
+2 "Change Global Settings" \
+3 "Credits and Information" \
+4 "Update Package List" 
 
 world_select(){
 yq read "./worlds.yml" worldnames
@@ -18,10 +18,9 @@ yq read "./worlds.yml" worldnames
 
 global_settings(){
   dialog --title "DPM / Global Settings" --menu "" 44 66 3 \
-  1 "Add Or Remove World Configurations"\
-  2 "Check For Updates"\
-  3 "Install Development Tools"
-}
+  1 "Add Or Remove World Configurations" \
+  2 "Check For Updates" \
+  3 "Install Development Tools"}
 
 install(){
 dialog --inputbox "Type The Name Of The Package You Want To Install" 44 66 2> $package
