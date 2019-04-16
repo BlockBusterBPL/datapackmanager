@@ -6,6 +6,11 @@ echo "starting installer"
 : ${DIALOG_EXTRA=3}
 : ${DIALOG_ITEM_HELP=4}
 : ${DIALOG_ESC=255}
+create_temp(){
+  tempid=$1
+  touch "/tmp/dpm/${tempid}.$$"
+  eval temp${tempid}="/tmp/dpm/${tempid}.$$"
+}
 echo "Checking Required Libraries... The Installer Will Continue When This Operation Is Done"
 FullWidth=$(tput cols)
 FullHeight=$(tput lines)
