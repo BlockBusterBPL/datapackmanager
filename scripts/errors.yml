@@ -1,0 +1,11 @@
+internal:
+  version: 0.1
+  programs:
+    - "dpc"
+    - "dpm"
+dpc:
+  1:
+    title: "General Error"
+    description: "An unidentifiable error occured with DPC. Please Contact The Developer"
+  2:
+    description: "Router Error"
