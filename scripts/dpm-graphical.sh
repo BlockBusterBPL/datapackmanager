@@ -6,27 +6,7 @@
 ###################################
 version="0.1"
 clear
-mkfifo /tmp/dpm/dialogchoice
-
-dialog --title "DPM" --menu "Choose An Option" 44 66 4 \
-1 "Select A World" \
-2 "Change Global Settings" \
-3 "Credits and Information" \
-4 "Update Package List" 2> /tmp/dpm/dialogchoice
-
-dialogchoice="$( cat /tmp/dpm/dialogchoice )"
-
-case $dialogchoice in 
-  "Select A World")
-    world_select
-      ;;
-  "Change Global Settings")
-    global_settings
-      ;;
-  *)
-    clear
-    echo "An Error Occured With DPM! Error: invalid menu choice"
-    exit 1
+mkfifo /tmp/dialogchoice
 
 world_select(){
 yq read "./worlds.yml" worldnames
@@ -36,7 +16,8 @@ global_settings(){
   dialog --title "DPM / Global Settings" --menu "" 44 66 3 \
   1 "Add Or Remove World Configurations" \
   2 "Check For Updates" \
-  3 "Install Development Tools"}
+  3 "Install Development Tools"
+}
 
 install(){
 dialog --inputbox "Type The Name Of The Package You Want To Install" 44 66 2> $package
@@ -62,3 +43,27 @@ dialog --progressbox "Updating Package List..." | git pull -q
 cd ..
 dpm interface
 }
+dialog --title "DPM" --menu "Choose An Option" 44 66 4 \
+1 "Select A World" \
+2 "Change Global Settings" \
+3 "Credits and Information" \
+4 "Update Package List" 2> dialogchoice
+
+dialogchoice="$( cat < dialogchoice )"
+
+case $dialogchoice in
+1)
+world_select
+;;
+
+2)
+clear
+global_settings
+;;
+
+*)
+clear
+echo "An Error Occured With DPM! Error: invalid menu choice"
+exit 1
+;;
+esac
