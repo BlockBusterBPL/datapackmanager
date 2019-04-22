@@ -5,7 +5,18 @@ internal:
     - "dpm"
 dpc:
   1:
+    type: "err"
     title: "General Error"
-    description: "An unidentifiable error occured with DPC. Please Contact The Developer"
+    desc: "An unidentifiable error occured with DPC. Please Contact The Developer"
   2:
-    description: "Router Error"
+    type: "err"
+    title: "Router Error"
+    desc: "An error occured with DPC's Built In View Router"
+  3:
+    type: "err"
+    title: "Changeover Error"
+    desc: "An error occured transfering information from DPM to DPC"
+  4:
+    type: "info"
+    title: "You Found An Easter Egg!"
+    desc: "This Is Not Very Easy To Find!"
