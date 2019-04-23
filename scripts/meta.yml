@@ -1,16 +1,16 @@
-version: "1.0 Prerelease"
-selectedworld:
-  name: "ZuCc"
-  savename: "ZuCc"
+version: 1.0
+directories:
+  install:
+    darwin: "/Library/Application\ Support/minecraft"
+    windows: ""
+  saves: "/saves"
+  dpm: "/datapackmanager/scripts"
 worlds:
-  prefix: "../../saves/"
-  default:
-    path: "default"
-    name: "default"
-    installed:
-      - "dpm-core"
-  creative:
-    path: "creative"
-    name: "creative"
-    installed:
-      - "dpm-core"
+  Template:
+    savename: dpm-template
+    from-datapack: false
+    datapacks:
+      - devtools
+      - foo
+      - bar
+selectedworld: Template
