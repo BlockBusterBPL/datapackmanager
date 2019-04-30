@@ -1,9 +1,10 @@
-###################################
-# DPM Graphical by BlockBusterBPL
-# 
-# 
-# 
-###################################
+#####################################
+# DPM Graphical by BlockBusterBPL   #
+# Do Not Copy Without Authorization #
+# This Script Will Not Run Without  #
+# The installer being run first!    #
+#####################################
+
 version="0.1"
 clear
 mkfifo /tmp/dpm/dialogchoice
