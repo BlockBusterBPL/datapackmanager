@@ -30,7 +30,11 @@ case $dialogchoice in
     exit 1
 
 world_select(){
-yq read "./worlds.yml" worldnames
+worlds_string="$(yq read "./worlds.yml" worldnames)"
+worlds=($worlds_string)
+worlds_length${#worlds[@]}
+dialog --radiolist "Choose A World" 44 66 ${worlds_length} \
+# TODO: More World List Expanding Here!
 }
 
 global_settings(){
@@ -59,7 +63,7 @@ devkit(){
 }
 updatelist(){
 cd ${ID}/packages
-dialog --progressbox "Updating Package List..." | git pull -q
+dialog --progressbox "Updating Package List..." | git pull https://github.com/BlockBusterBPL/dpm-packages
 cd ..
 dpm interface
 }
