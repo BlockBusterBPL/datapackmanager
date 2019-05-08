@@ -42,7 +42,7 @@ case $1 in
   "datapack-list")
     my_data_packs
     ;;
-	"initialize-dpc")
+"initialize-dpc")
 		handle_changeover
 		dpc_router "mainmenu"
 		;;
@@ -58,8 +58,7 @@ datapack_home(){
 	:
 }
 datapack_createnew(){
-	worldsave_file_location="NOTFOUND"
-	cd ../../saves/${worldsave_file_location}
+	cd ../datapacks
   log "Creating New DataPack"
   dialog --inputmenu "Set Starting Options For Your New DataPack" 20 90 5 \
   "Name" "" \
@@ -79,10 +78,16 @@ datapack_createnew(){
 	dpc_max_ver="${dpc_max_ver_temp#*Version }"
   cd datapacks
   mkdir "${dpc_name}"
+  cd "${dpc_name}"
+  mkdir data
+  cd data
   mkdir "${dpc_namespace}"
   cd "${dpc_namespace}"
   touch pack.mcmeta
 	touch dp_creator.yml
+  touch temp__yaml_storage.yml
+  yq write temp__yaml_storage.yml pack.format "4"
+  yq write temp__yaml_storage.yml pack.description "${dpc_name} By: ${dpc_author}. Created With DPC"
   yq write dp_creator.yml title "${dpc_name}"
   # TODO: More Variables Outputting To YAML Config File
   dpc_router "datapack-home"
