@@ -25,4 +25,4 @@ The install script will install to the default MC directory located here:
   - Mac OS: `/Users/{yourname}/Library/Application Support/minecraft`
 
 Operates From The Subdirectory Of `datapackmanager`  
-This Program Will Add And Remove Data From Your Minecraft Installation. If you reinstall minecraft, or delete the datapackmanager directory, this program will no longer work
+This Program Will Add And Remove Data From Your Minecraft Installation. If you reinstall minecraft, or delete the datapackmanager directory, this program will no longer work. Your personal information is not used by this software, and therefore, can not be sent to me, if the software is installed correctly.
