@@ -16,6 +16,7 @@ FullWidth=$(tput cols)
 FullHeight=$(tput lines)
 h=$(($FullHeight / 2))
 w=$(($FullWidth / 2))
+Reqs=(dialog yq git unzip wget)
 #if (( dialog && yq && git && unzip )) ; then
 #:
 #else
