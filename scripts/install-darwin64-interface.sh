@@ -51,7 +51,7 @@ rm -rf master.zip
 mv datapackmanager-master newdpm
 rm -rf datapackmanager-master
 if [ "$DevKit" = "true" ] ; then
-dialog --progressbox "Downloading Development Kit..." $h $w #| wget -q https://www.github.com/
+dialog --progressbox "Downloading Development Kit..." $h $w | git -v https://www.github.com/
 fi
 if [ "$PkgList" = "true" ] ; then
 dialog --progressbox "Updating Package List..." $h $w #| package_install
