@@ -1,0 +1,3 @@
+[submodule "repositories/dpm-packages"]
+	path = repositories/dpm-packages
+	url = https://github.com/BlockBusterBPL/dpm-packages
