@@ -20,4 +20,4 @@ Automatically Installs The Following Dependancies. (If they are not installed)
 * dialog (Creates Dialog Boxes On The Screen)  
 
 Operates From The Subdirectory Of `datapackmanager` in your minecraft installation, which you shall point the installer to during the installation  
-This Program Will Add And Remove Data From Your Minecraft Installation. If you reinstall minecraft, or delete the datapackmanager directory, this program will no longer work
+This Program Will Add And Remove Data From Your Minecraft Installation. If you reinstall minecraft, or delete the datapackmanager directory, this program will no longer work  
