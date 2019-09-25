@@ -1,4 +1,6 @@
+#!/bin/bash
 # DataPackMaker v0.1 by: BlockBusterBPL
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Define Functions
 source errorhandler.sh
 log(){
@@ -19,8 +21,9 @@ log_teardown(){ # Tear Down and Close The Logger
 :
 }
 handle_changeover(){ # Handles A Seamless Switch From DPM to DPC
-mkfifo /tmp/dpc-formout
-form=/tmp/dpc-formout
+rm "${DIR}/dpc-formout"
+mkfifo "${DIR}/dpc-formout"
+form="${DIR}/dpc-formout"
 }
 handle_reverse_changeover(){ # Handles A Seamless Switch From DPC to DPM
 :
@@ -60,23 +63,12 @@ datapack_home(){
 datapack_createnew(){
 	cd ../datapacks
   log "Creating New DataPack"
-  dialog --inputmenu "Set Starting Options For Your New DataPack" 20 90 5 \
-  "Name" "" \
-  "Namespace" "" \
-  "Author" "" \
-  "Min. Version" "" \
-  "Max. Version" "" 2> $form
-  dpc_name_temp="$(cat dpc-formout | sed '1q;d')"
-	dpc_name="${dpc_name_temp#*Name }"
-  dpc_namespace_temp="$(cat $form | sed '2q;d')"
-	dpc_namespace="${dpc_namespace_temp#*Namespace }"
-  dpc_author_temp="$(cat $form | sed '3q;d')"
-	dpc_author="${dpc_author_temp#*Author }"
-  dpc_min_ver_temp="$(cat $form | sed '4q;d')"
-	dpc_min_ver="${dpc_min_ver_temp#*Version }"
-  dpc_max_ver_temp="$(cat $form | sed '5q;d')"
-	dpc_max_ver="${dpc_max_ver_temp#*Version }"
-  cd datapacks
+  dialog --inputbox "Enter the name of your new datapack" 20 90 2> $form
+	dpc_name="${form}"
+  dialog --inputbox "Enter a description for your datapack" 20 90 2> $form
+	dpc_namespace="${form}"
+  dialog --inputbox "Enter the name you want to appear as the author" 20 90 2> $form
+	dpc_author="${form}"
   mkdir "${dpc_name}"
   cd "${dpc_name}"
   mkdir data
@@ -86,11 +78,14 @@ datapack_createnew(){
   touch pack.mcmeta
 	touch dp_creator.yml
   touch temp__yaml_storage.yml
+  echo "---\n***"
   yq write temp__yaml_storage.yml pack.format "4"
   yq write temp__yaml_storage.yml pack.description "${dpc_name} By: ${dpc_author}. Created With DPC"
   yq write dp_creator.yml title "${dpc_name}"
   # TODO: More Variables Outputting To YAML Config File
+  clear
   dpc_router "datapack-home"
 }
 clear
+handle_changeover
 dpc_router "newdatapack"

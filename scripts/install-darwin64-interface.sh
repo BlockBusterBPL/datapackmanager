@@ -11,28 +11,24 @@ create_temp(){
   touch "/tmp/dpm/${tempid}.$$"
   eval temp${tempid}="/tmp/dpm/${tempid}.$$"
 }
-echo "Checking Required Libraries... The Installer Will Continue When This Operation Is Done"
+echo "Checking Required Dependancies... The Installer Will Continue When This Operation Is Done"
 FullWidth=$(tput cols)
 FullHeight=$(tput lines)
 h=$(($FullHeight / 2))
 w=$(($FullWidth / 2))
 Reqs=(dialog yq git unzip wget)
-#if (( dialog && yq && git && unzip )) ; then
-#:
-#else
-#clear
-#echo "One or more libraries were not found! Make sure they are installed before you run this script!"
-#exit 1
-#fi
-pkg_install() {
-  git clone https://www.github.com/blockbusterbpl/dpm-packages packages
-}
+if (( dialog && yq && git && unzip && wget )) ; then
+:
+else
+clear
+echo "One or more libraries were not found! Make sure they are installed before you run this script!"
+exit 1
+fi
 clear
 
-dialog --checklist "Select Options To Install:" $h $w 3 \
+dialog --checklist "Select Options To Install:" $h $w 2 \
 1 "DPM Core (Required)" 1 \
 2 "GamePack Development Kit" 0 \
-3 "Preinstall Package List" 0
 
 if grep -q "Preinstall Package List" /tmp/choice.$$ ; then
     PkgList="true"
@@ -41,20 +37,13 @@ if grep -q "GamePack Development Kit" /tmp/choice.$$ ; then
     DevKit="true"
 fi
 clear
-cd ~/Library/Application\ Support/minecraft
-rm -rf master.zip
-rm -rf datapackmanager-master
-rm -rf newdpm
-wget -q https://www.github.com/BlockBusterBPL/datapackmanager/archive/master.zip | dialog --progressbox "Downloading Files From GitHub..." $h $w
-unzip -o master.zip | dialog --progressbox "Unzipping Files..." 17 66
-rm -rf master.zip
-mv datapackmanager-master newdpm
-rm -rf datapackmanager-master
+cd "~/Library/Application\ Support/minecraft"
+git clone -v https://www.github.com/BlockBusterBPL/datapackmanager | dialog --progressbox "Downloading Files From GitHub..." $h $w
 if [ "$DevKit" = "true" ] ; then
-dialog --progressbox "Downloading Development Kit..." $h $w | git -v https://www.github.com/
+:
 fi
 if [ "$PkgList" = "true" ] ; then
-dialog --progressbox "Updating Package List..." $h $w #| package_install
+
 fi
 sleep 2
 dialog --msgbox "Installation Complete! Type 'dpm' to start first-time setup." $h $w
