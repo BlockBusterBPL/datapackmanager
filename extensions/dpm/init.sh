@@ -4,4 +4,5 @@ dpm_init() {
   rm -rf "${DPM_DIR}/temp/"
   mkfifo "${DPM_DIR}/temp/dpm-form"
   dpm_form="${DPM_DIR}/temp/dpm-form"
+  git submodule update --init --recursive
 }
