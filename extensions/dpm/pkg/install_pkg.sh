@@ -1,6 +1,5 @@
 #!/bin/bash
 # install_pkg.sh
-source ../repos/
 dpm_pkg_installer_get_repo_count(){
   ls -1 | wc -l
 }
