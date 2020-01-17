@@ -11,10 +11,10 @@ dpm_pkg_installer_get_repo_list(){
   cd $f
   dpm_pkg_installer_repo_name="$(yq r meta.yml meta.name)"
   cd ..
-  dpm_pkg_installer_final_item="${dpm_pkg_installer_repo_flag} \"${dpm_pkg_installer_final_item}\"\\"
-  $dpm_pkg_installer_final_item >> dpm_pkg_temp
+  dpm_pkg_installer_final_item="${dpm_pkg_installer_repo_flag} \"${dpm_pkg_installer_final_item}\"\\ "
+  $dpm_pkg_installer_final_item >> $dpm_pkg_temp
   done
 }
 install_pkg() {
-  dialog --menu "Select A Repository" $dpm_h $dpm_w $dpm_pkg_installer_repo_count \
+  dialog --menu "Select A Repository" $dpm_h $dpm_w $dpm_pkg_installer_repo_count --file $dpm_pkg_temp
 }
