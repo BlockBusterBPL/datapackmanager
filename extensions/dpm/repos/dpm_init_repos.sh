@@ -1,5 +1,5 @@
 #!/bin/bash
-init_repos(){
+dpm_init_repos(){
   git submodule init
   git submodule update
 }
