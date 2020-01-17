@@ -1,2 +1,4 @@
-for f in ~/extensions/*; do source $f; done
-main_menu
+source extensions/script_loader.sh
+script_loader
+wait
+dpm_main_menu
