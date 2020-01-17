@@ -1,4 +1,4 @@
 #!/bin/bash
-update_repos() {
+dpm_update_repos() {
   git submodule update
 }
