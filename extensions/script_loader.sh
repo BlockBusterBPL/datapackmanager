@@ -6,5 +6,7 @@ script_loader() {
   dpm_form="${DPM_DIR}/temp/dpm-form"
   mkfifo "${DPM_DIR}/temp/dpm-temp"
   dpm_temp="${DPM_DIR}/temp/dpm-temp"
+  mkfifo "${DPM_DIR}/temp/dpm-pkg-temp"
+  dpm_pkg_temp="${DPM_DIR}/temp/dpm-pkg-temp"
   for f in ${DPM_DIR}/extensions/*; do source $f; done
 }
