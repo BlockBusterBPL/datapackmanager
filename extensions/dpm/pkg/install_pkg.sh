@@ -42,5 +42,17 @@ dpm_install_pkg_actual_install() {
   cd ${dpm_staging_system_directory}
   git submodule add ${git_repo}
   git submodule update
-  dpm_staging_system_menu_continue
+}
+dpm_install_pkg(){
+  dpm_install_pkg_get_repo_count
+  wait
+  dpm_install_pkg_get_repo_list
+  wait
+  dpm_install_pkg_show_repo
+  wait
+  dpm_install_pkg_get_package_list
+  wait
+  dpm_install_pkg_select_package
+  wait
+  dpm_install_pkg_actual_install
 }
