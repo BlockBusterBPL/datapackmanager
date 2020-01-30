@@ -16,7 +16,7 @@ script_loader() {
   h=$(($dpm_script_loader_width / 2))
   w=$(($dpm_script_loader_height / 2))
   # DEFINE LOAD ORDER
-  for f in ${DPM_DIR}/extensions/libraries/*; do source $f; done
-  for g in ${DPM_DIR}/extensions/dpm-source/*; do source $g; done
-  for h in ${DPM_DIR}/extensions/addons/*; do source $h; done
+  for f in ${DPM_DIR}/scripts/libraries/*; do source $f; done
+  for g in ${DPM_DIR}/scripts/dpm-source/*; do source $g; done
+  for h in ${DPM_DIR}/scripts/addons/*; do source $h; done
 }
