@@ -8,5 +8,7 @@ script_loader() {
   dpm_temp="${DPM_DIR}/temp/dpm-temp"
   mkfifo "${DPM_DIR}/temp/dpm-pkg-temp"
   dpm_pkg_temp="${DPM_DIR}/temp/dpm-pkg-temp"
-  for f in ${DPM_DIR}/extensions/*; do source $f; done
+  for f in ${DPM_DIR}/extensions/libraries/*; do source $f; done
+  for g in ${DPM_DIR}/extensions/dpm-source/*; do source $g; done
+  for h in ${DPM_DIR}/extensions/overrides/*; do source $h; done
 }
