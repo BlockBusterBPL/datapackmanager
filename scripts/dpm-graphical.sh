@@ -49,7 +49,7 @@ devkit(){
 }
 updatelist(){
 cd "../repositories/dpm-official"
-git pull | dialog --progressbox "Updating Package List..." $h $w
+git submodule update | dialog --progressbox "Updating Package List..." $h $w
 cd "../../scripts/"
 clear
 }
