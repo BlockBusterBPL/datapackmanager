@@ -1,3 +1,4 @@
+#!/bin/bash
 export font_bold
 export font_dim
 export font_under

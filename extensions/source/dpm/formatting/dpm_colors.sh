@@ -1,3 +1,4 @@
+#!/bin/bash
 export color_default="\e[39m"
 export color_black="\e[30m"
 export color_red="\e[31m"
