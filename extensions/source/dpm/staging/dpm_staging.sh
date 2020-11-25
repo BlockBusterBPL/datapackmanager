@@ -5,7 +5,7 @@ dpm_staging_system_menu_continue() {
   install "Install Mods" \
   continue "Back to Mods" \
   home "Go to Home" 2> $dpm-form
-  case $f in $(cat $dpm-form)
+  case $(cat $dpm-form) in
   install)
   dpm_staging_install
   ;;

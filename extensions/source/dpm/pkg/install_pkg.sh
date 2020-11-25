@@ -4,10 +4,10 @@ dpm_install_pkg_get_repo_count(){
   ls -1 | wc -l > $dpm_pkg_installer_repo_count
 }
 dpm_install_pkg_get_repo_list(){
-  cd ${DPM_DIR}/reositories
+  cd "${DPM_DIR}/repositories"
   ls > $dpm_temp
-  for $f in $dpm_temp do
-  dpm_pkg_installer_pkg_flag="${f}"
+  for f in $dpm_temp; do
+  dpm_pkg_installer_pkg_flag=$f
   cd $f
   dpm_pkg_installer_pkg_name="$(yq r meta.yml meta.name)"
   cd ..
@@ -25,7 +25,7 @@ dpm_install_pkg_get_package_length(){
 }
 dpm_install_pkg_get_package_list(){
   ls > $dpm_pkg_installer_items
-  for $f in $dpm_pkg_installer_items do
+  for f in $dpm_pkg_installer_items; do
   dpm_pkg_installer_pkg_flag="${f}"
   cd $f
   dpm_pkg_installer_pkg_name="$(yq r ${f}.yml meta.name)"

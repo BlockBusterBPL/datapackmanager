@@ -15,10 +15,10 @@ script_loader() {
   # DEFINE DIALOG HEIGHT AND WIDH
   dpm_script_loader_width=$(tput cols)
   dpm_script_loader_height=$(tput lines)
-  h=$(($dpm_script_loader_width / 2))
-  w=$(($dpm_script_loader_height / 2))
+  w=$(($dpm_script_loader_width / 2))
+  h=$(($dpm_script_loader_height / 2))
   # DEFINE LOAD ORDER
   #for f in ${DPM_DIR}/extensions/lib/*; do source $f; done #External Libraries for dpm
-  for g in "$(find $DPM_DIR/extensions/source/* -name '*.sh' -print -quit)"; do source $g; done # DPM Source Code
+  for g in $(find $DPM_DIR/extensions/source -type f -print); do source $g; done # DPM Source Code
   #for h in ${DPM_DIR}/extensions/addons/*; do source $h; done # External Mods to DPM
 }
