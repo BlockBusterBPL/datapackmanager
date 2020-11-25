@@ -18,8 +18,8 @@ do
 done
 dialog_branch=$(cat branch_list | tr '\n' ' ')
 branches_count=$(wc -l < new_branches)
-dialog --no-items --radiolist "Select Branch" 20 50 2 $dialog_branch 2> dpm_form
-git checkout $(cat dpm_form) | dialog --sleep 2 --progressbox "Updating Package List..." 20 50
-dialog --pause "Branch Changed. Program will now exit." 20 50 2
+dialog --no-items --radiolist "Select Branch" $h $w $branches_count $dialog_branch 2> dpm_form
+git checkout $(cat dpm_form) | dialog --sleep 2 --progressbox "Updating Package List..." $h $w
+dialog --pause "Branch Changed. Program will now exit." $h $w 2
 clear
 }

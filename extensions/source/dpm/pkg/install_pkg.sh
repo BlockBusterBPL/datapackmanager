@@ -11,7 +11,7 @@ dpm_install_pkg_get_repo_list(){
   cd $f
   dpm_pkg_installer_pkg_name="$(yq r meta.yml meta.name)"
   cd ..
-  dpm_pkg_installer_final_item="${dpm_pkg_installer_pkg_flag} \"${dpm_pkg_installer_rpkg_name}\"\\ "
+  dpm_pkg_installer_final_item="${dpm_pkg_installer_pkg_flag} \"${dpm_pkg_installer_pkg_name}\"\\ "
   $dpm_pkg_installer_final_item >> $dpm_pkg_temp
   done
 }
