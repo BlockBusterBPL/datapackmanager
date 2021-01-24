@@ -17,8 +17,12 @@ script_loader() {
   dpm_script_loader_height=$(tput lines)
   w=$(($dpm_script_loader_width / 2))
   h=$(($dpm_script_loader_height / 2))
+  
+  OIFS="$IFS"
+  IFS=$'\n'
   # DEFINE LOAD ORDER
   #for f in ${DPM_DIR}/extensions/lib/*; do source $f; done #External Libraries for dpm
-  for g in $(find $DPM_DIR/extensions/source -type f -print); do source $g; done # DPM Source Code
+  for g in $(find "$DPM_DIR/extensions/source" -type f -print); do source $g; done # DPM Source Code
   #for h in ${DPM_DIR}/extensions/addons/*; do source $h; done # External Mods to DPM
+  IFS="$OIFS"
 }
