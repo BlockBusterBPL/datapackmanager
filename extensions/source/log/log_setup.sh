@@ -5,12 +5,18 @@ log_setup() {
     :
     ;;
     first_init)
-    :
+    cd "$DPM_DIR"
+    mkdir logs
     ;;
     init)
-    file_time="$(datxe +"%D %T")"
+    file_time="$(date +"%D %T")"
+    file_time="$(date +"%D %T")"
+    cd "$DPM_DIR"
+    cd logs
+    touch "${file_time}.txt"
     ;;
     *)
     :
     ;;
+    esac
 }
