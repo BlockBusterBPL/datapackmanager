@@ -28,6 +28,10 @@ dpm_main_user_location() {
 
 dpm_main_user_location_wsl(){
     dialog --title "Select your user folder" --dselect "/mnt/c/Users/" $h $w 2> dpm_form
+    MC_DIR="$(cat < dpm_form)/AppData/Roaming/.minecraft/"
+    cd "$DPM_DIR"
+    yq write config.yml 'config.mc_install_dir' "$MC_DIR" > config.yml
+
 }
 dpm_main_user_location_mac(){
     dialog --title "Select your minecraft folder" --dselect "/Library/Application\ Support/" $h $w 2> dpm_form
