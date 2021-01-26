@@ -10,10 +10,12 @@ log_setup() {
     ;;
     init)
     unformatted_time="$(date +"%D %T")"
-    file_time="$()"
+    file_time="$(echo "$unformatted_time" | tr '/' '.' | tr ':' '.')"
     cd "$DPM_DIR"
     cd logs
     touch "${file_time}.txt"
+    log_name="${LOG_DIR}/${file_time}.txt"
+    cd ..
     ;;
     *)
     :

@@ -1,6 +1,7 @@
 #!/bin/bash  
 script_loader() {
   # DEFINE EXT DIRECTORY
+  LOG_DIR="${DPM_DIR}/logs"
   CFG_DIR="${DPM_DIR}/config"
   EXT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
   # CREATE TEMP FILES FOR DIALOG
