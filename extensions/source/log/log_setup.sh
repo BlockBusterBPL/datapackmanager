@@ -9,8 +9,8 @@ log_setup() {
     mkdir logs
     ;;
     init)
-    file_time="$(date +"%D %T")"
-    file_time="$(date +"%D %T")"
+    unformatted_time="$(date +"%D %T")"
+    file_time="$()"
     cd "$DPM_DIR"
     cd logs
     touch "${file_time}.txt"
