@@ -1,0 +1,6 @@
+worlds:
+    - path: world
+      name: "Test World"
+      dpm_fname: null
+      mcv: "1.16.4"
+      dpv: "1"

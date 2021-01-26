@@ -1,6 +1,7 @@
 #!/bin/bash  
 script_loader() {
   # DEFINE EXT DIRECTORY
+  CFG_DIR="${DPM_DIR}/config"
   EXT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
   # CREATE TEMP FILES FOR DIALOG
   cd extensions
@@ -22,7 +23,7 @@ script_loader() {
   IFS=$'\n'
   # DEFINE LOAD ORDER
   #for f in ${DPM_DIR}/extensions/lib/*; do source $f; done #External Libraries for dpm
-  for g in $(find "$DPM_DIR/extensions/source" -type f -print); do source $g; done # DPM Source Code
+  for g in $(find "${DPM_DIR}/extensions/source" -type f -print); do source $g; done # DPM Source Code
   #for h in ${DPM_DIR}/extensions/addons/*; do source $h; done # External Mods to DPM
   IFS="$OIFS"
 }
