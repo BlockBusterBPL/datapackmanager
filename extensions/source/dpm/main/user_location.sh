@@ -27,9 +27,11 @@ dpm_main_user_location() {
 }
 
 dpm_main_user_location_wsl(){
+    log N "Looking for minecraft installation in WSL Mode"
     dialog --title "Select your user folder" --dselect "/mnt/c/Users/" $h $w 2> dpm_form
     MC_DIR="$(cat < dpm_form)/AppData/Roaming/.minecraft"
-    yq eval --inplace ".mc_dir = \"${MC_DIR}\"" "${CFG_DIR}/dpm.yml" #> "${CFG_DIR}/dpm.yml"
+    yq eval --inplace ".mc_dir = \"${MC_DIR}\"" "${CFG_DIR}/dpm.yml"
+    log W "Changed minecraft directory to ${MC_DIR} This could cause issues."
 
 }
 dpm_main_user_location_mac(){
